@@ -15,16 +15,23 @@ public class Writer {
 	@Autowired
 	private Reader reader;
 	
+	@Autowired
+	private Input input;
+	
 	
 	public String savePriceDataToOracle() {
 		
-		System.out.println("*****Cheguei no writer*****");
+		String dataAtual = input.dataAtualLog();
 		
 		try {
-			PlanilhaExcelPrice dadoExcel = reader.obterDadosDaPlanilhaPreco();
 			
-			String retorno = priceService.saveDadosExcelToPriceDTO(dadoExcel);
-			return retorno;
+			PlanilhaExcelPrice dadoExcel = reader.obterDadosDaPlanilhaPreco();
+			System.out.println("Dados encontrados ********************--> " +  dataAtual);
+			
+			
+			System.out.println("Salvando os dados no banco ********************--> " +  dataAtual);
+			priceService.convertPlanilhaExcelPriceToPriceDTOList(dadoExcel);
+			return "";
 			
 		} catch(Exception ex) {
 			throw new RuntimeException("Erro na leitura dos dados da planilha!");

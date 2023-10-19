@@ -31,14 +31,17 @@ public class Reader {
 		Integer posicaoCodProd = 0;
 		Integer posicaoPreco = 1;
 		Integer posicaoCodTab = 2;
-		
+		String dataAtual = inputStream.dataAtualLog();
 		PlanilhaExcelPrice excelPrice = new PlanilhaExcelPrice();
 		List<Integer> codProdList = new ArrayList<>();
 		List<Double> precoList = new ArrayList<>();
 		List<Integer> codTabList = new ArrayList<>();
 		
+		
+		System.out.println("Buscando planilha ********************--> " +  dataAtual);
 		//Criação do fileInputStream contendo o caminho específico do arquivo através da classe "Input"
 		FileInputStream planilha = inputStream.getInputStream("..\\Integrador-ExcelToOracle\\src\\main\\resources\\static\\");
+		System.out.println("Planilha localizada ********************--> " +  dataAtual);
 		
 		//Criando um HSSFWorkbook para acessar o arquivo excel
 		HSSFWorkbook workbook = new HSSFWorkbook(planilha);
@@ -92,8 +95,7 @@ public class Reader {
 			}
 
 		}
-
-		System.out.println("numberOfRows --> " + numberOfRows);
+		
 
 		return excelPrice;
 		

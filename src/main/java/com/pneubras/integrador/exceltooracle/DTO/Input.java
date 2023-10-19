@@ -18,15 +18,17 @@ public class Input {
 	
 	public FileInputStream getInputStream(String localArquivo) {
 		
-		String nomePlanilha = dateOfDay() +  ".xls";
+		String dataAtutal = dataAtualLog();
+		System.out.println("Validando Nome da Planilha de acordo com a data do dia ********************--> " +  dataAtutal);
 		
+		String nomePlanilha = dateOfDay() +  ".xls";
 		File file = new File(localArquivo + nomePlanilha);
 		
 		try {
 			FileInputStream planilha = new FileInputStream(file);
 			return planilha;
 		} catch(Exception ex) {
-			throw new RuntimeException("Planila de excel não localizada! Por favor verifique o caminho e a extenção do arquivo (.xls)");
+			throw new RuntimeException("Planila de excel não localizada! Por favor verifique o caminho, o nome e a extenção do arquivo (.xls)");
 		}
 	}
 
@@ -36,6 +38,13 @@ public class Input {
 		LocalDateTime time = LocalDateTime.now();
 		String data = (time.format(format));
 		return data;
+	}
+	
+	public String dataAtualLog() {
+		DateTimeFormatter format = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
+		LocalDateTime data = LocalDateTime.now();
+		String dataAtual = data.format(format);
+		return dataAtual;
 	}
 	
 	
