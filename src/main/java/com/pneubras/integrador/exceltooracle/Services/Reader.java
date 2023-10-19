@@ -1,4 +1,4 @@
-package com.pneubras.integrador.exceltooracle.DTO;
+package com.pneubras.integrador.exceltooracle.Services;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -13,18 +13,19 @@ import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
-import com.pneubras.integrador.exceltooracle.Entities.Excel.PlanilhaExcelPrice;
+import com.pneubras.integrador.exceltooracle.Entities.Excel.PlanilhaPrecoControladoriaComercial;
 
-@Component
+@Service
 public class Reader {
 	
 	@Autowired
 	private Input inputStream;
 
 	
-	
-	public PlanilhaExcelPrice obterDadosDaPlanilhaPreco() throws IOException {
+	//Método exclusivo para a leitura da planilha de PRECO
+	public PlanilhaPrecoControladoriaComercial obterDadosDaPlanilhaPreco() throws IOException {
 		Integer colunaA = 0;
 		Integer colunaB = 1;
 		Integer colunaC = 2;
@@ -32,7 +33,7 @@ public class Reader {
 		Integer posicaoPreco = 1;
 		Integer posicaoCodTab = 2;
 		String dataAtual = inputStream.dataAtualLog();
-		PlanilhaExcelPrice excelPrice = new PlanilhaExcelPrice();
+		PlanilhaPrecoControladoriaComercial excelPrice = new PlanilhaPrecoControladoriaComercial();
 		List<Integer> codProdList = new ArrayList<>();
 		List<Double> precoList = new ArrayList<>();
 		List<Integer> codTabList = new ArrayList<>();
@@ -100,5 +101,11 @@ public class Reader {
 		return excelPrice;
 		
 	}
+	
+	
+	
+	//Criação de outros métodos para leitura de outras planilhas
+	
+	
 	
 }

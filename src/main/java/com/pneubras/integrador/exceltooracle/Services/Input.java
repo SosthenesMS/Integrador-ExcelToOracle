@@ -1,14 +1,15 @@
-package com.pneubras.integrador.exceltooracle.DTO;
+package com.pneubras.integrador.exceltooracle.Services;
 
 import java.io.File;
 import java.io.FileInputStream;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
-@Component
+@Service
 public class Input {
+	
 	
 	//Construtor padrão
 	public Input() {

@@ -9,8 +9,8 @@ import jakarta.persistence.Table;
 
 
 @Entity
-@Table(name = "Price")
-public class Price {
+@Table(name = "TabelaPrecoControlComer")
+public class TblPrecoControladoriaComercial {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,11 +21,11 @@ public class Price {
 	
 	
 	
-	public Price() {
+	public TblPrecoControladoriaComercial() {
 		
 	}
 	
-	public Price(Integer codId, Integer codProd, double price, Integer codTab) {
+	public TblPrecoControladoriaComercial(Integer codId, Integer codProd, double price, Integer codTab) {
 		this.codId = codId;
 		this.codProd = codProd;
 		this.price = price;
@@ -71,7 +71,7 @@ public class Price {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Price other = (Price) obj;
+		TblPrecoControladoriaComercial other = (TblPrecoControladoriaComercial) obj;
 		return Objects.equals(codId, other.codId);
 	}
 	

@@ -1,16 +1,16 @@
-package com.pneubras.integrador.exceltooracle.DTO;
+package com.pneubras.integrador.exceltooracle.Services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import com.pneubras.integrador.exceltooracle.Entities.Excel.PlanilhaExcelPrice;
-import com.pneubras.integrador.exceltooracle.Services.PriceService;
+import org.springframework.stereotype.Service;
+import com.pneubras.integrador.exceltooracle.Entities.Excel.PlanilhaPrecoControladoriaComercial;
 
 
-@Component
+@Service
 public class Writer {
 
 	@Autowired
-	private PriceService priceService;
+	private TblPrecoControladoriaComercialService priceService;
 	
 	@Autowired
 	private Reader reader;
@@ -25,7 +25,7 @@ public class Writer {
 		
 		try {
 			
-			PlanilhaExcelPrice dadoExcel = reader.obterDadosDaPlanilhaPreco();
+			PlanilhaPrecoControladoriaComercial dadoExcel = reader.obterDadosDaPlanilhaPreco();
 			System.out.println("Dados encontrados ********************--> " +  dataAtual);
 			
 			

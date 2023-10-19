@@ -2,7 +2,7 @@ package com.pneubras.integrador.exceltooracle.DTO;
 
 
 
-public class PriceDTO {
+public class TblPrecoControladoriaComercialDTO {
 	
 	private Integer codId;
 	private Integer codProd;
@@ -11,11 +11,11 @@ public class PriceDTO {
 	
 	
 	
-	public PriceDTO() {
+	public TblPrecoControladoriaComercialDTO() {
 	
 	}
 
-	public PriceDTO(Integer codId, Integer codProd, double price, Integer codTab) {
+	public TblPrecoControladoriaComercialDTO(Integer codId, Integer codProd, double price, Integer codTab) {
 		this.codId = codId;
 		this.codProd = codProd;
 		this.price = price;

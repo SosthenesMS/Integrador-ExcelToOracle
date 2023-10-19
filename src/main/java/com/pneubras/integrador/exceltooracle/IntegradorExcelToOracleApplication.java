@@ -10,7 +10,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import com.pneubras.integrador.exceltooracle.Controllers.PriceController;
+import com.pneubras.integrador.exceltooracle.Controllers.TblPrecoControladoriaComercialController;
 
 import jakarta.annotation.PostConstruct;
 
@@ -18,7 +18,7 @@ import jakarta.annotation.PostConstruct;
 public class IntegradorExcelToOracleApplication {
 	
 	@Autowired
-	PriceController priceController;
+	TblPrecoControladoriaComercialController priceController;
 
 	public static void main(String[] args) {
 		SpringApplication.run(IntegradorExcelToOracleApplication.class, args);
