@@ -3,7 +3,7 @@ package com.pneubras.integrador.exceltooracle.Services;
 import org.springframework.stereotype.Service;
 
 import com.pneubras.integrador.exceltooracle.DTO.PriceDTO;
-import com.pneubras.integrador.exceltooracle.Entities.Price;
+import com.pneubras.integrador.exceltooracle.Entities.Oracle.Price;
 
 @Service
 public class PriceService {

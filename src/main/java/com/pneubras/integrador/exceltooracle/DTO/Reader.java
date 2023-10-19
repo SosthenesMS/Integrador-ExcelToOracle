@@ -5,20 +5,28 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-
 import org.apache.poi.hssf.usermodel.HSSFCell;
 import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
-import com.pneubras.integrador.exceltooracle.Entities.PlanilhaPrice;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.pneubras.integrador.exceltooracle.Entities.Excel.PlanilhaExcelPrice;
 
 
 public class Reader {
-
+	
+	@Autowired
+	private Input inputStream;
+	
 	
 	public void obterDadosDaPlanilhaPreco() throws IOException {
 		
-		PlanilhaPrice planilhaPrice = new PlanilhaPrice();
+		
+		inputStream.getInputStream(null);
+		
+		
+		PlanilhaExcelPrice planilhaPrice = new PlanilhaExcelPrice();
 		String nomePlanilha = dateOfDay();
 		
 		//Criação do file contendo o caminho específico do arquivo
@@ -49,6 +57,7 @@ public class Reader {
 	
 	
 	public String dateOfDay() {
+		
 		DateTimeFormatter format = DateTimeFormatter.ofPattern("dd-MM-yyyy");
 		LocalDateTime time = LocalDateTime.now();
 		String data = (time.format(format)) + ".xls";

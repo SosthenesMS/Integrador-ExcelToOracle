@@ -1,4 +1,4 @@
-package com.pneubras.integrador.exceltooracle.Entities;
+package com.pneubras.integrador.exceltooracle.Entities.Oracle;
 
 import java.util.Objects;
 import jakarta.persistence.Entity;
