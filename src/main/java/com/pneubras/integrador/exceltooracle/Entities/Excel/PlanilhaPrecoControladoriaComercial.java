@@ -5,7 +5,7 @@ import java.util.List;
 import jakarta.persistence.Entity;
 
 
-public class PlanilhaExcelPrice {
+public class PlanilhaPrecoControladoriaComercial {
 
 	private List<Integer> codProd;
 	private List<Double> price;
@@ -13,11 +13,11 @@ public class PlanilhaExcelPrice {
 	
 	
 	
-	public PlanilhaExcelPrice() {
+	public PlanilhaPrecoControladoriaComercial() {
 
 	}
 
-	public PlanilhaExcelPrice(List<Integer> codProd, List<Double> price, List<Integer> codTab) {
+	public PlanilhaPrecoControladoriaComercial(List<Integer> codProd, List<Double> price, List<Integer> codTab) {
 		this.codProd = codProd;
 		this.price = price;
 		this.codTab = codTab;

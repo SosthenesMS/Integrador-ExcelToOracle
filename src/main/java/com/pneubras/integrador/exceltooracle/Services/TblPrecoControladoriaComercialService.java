@@ -4,34 +4,33 @@ import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import com.pneubras.integrador.exceltooracle.DTO.PriceDTO;
-import com.pneubras.integrador.exceltooracle.Entities.Excel.PlanilhaExcelPrice;
-import com.pneubras.integrador.exceltooracle.Entities.Oracle.Price;
-import com.pneubras.integrador.exceltooracle.Repositories.PriceRepository;
+import com.pneubras.integrador.exceltooracle.DTO.TblPrecoControladoriaComercialDTO;
+import com.pneubras.integrador.exceltooracle.Entities.Excel.PlanilhaPrecoControladoriaComercial;
+import com.pneubras.integrador.exceltooracle.Entities.Oracle.TblPrecoControladoriaComercial;
+import com.pneubras.integrador.exceltooracle.Repositories.TblPrecoControladoriaComercialRepository;
 
 @Service
-public class PriceService {
+public class TblPrecoControladoriaComercialService {
 
 	@Autowired
-	private PriceRepository priceRepository;
-	
-	
+	private TblPrecoControladoriaComercialRepository priceRepository;
 	
 
+
 	// Método para criar uma lista com vários obejtos únicos de PriceDTO
-	public void convertPlanilhaExcelPriceToPriceDTOList(PlanilhaExcelPrice excelPrice) {
+	public void convertPlanilhaExcelPriceToPriceDTOList(PlanilhaPrecoControladoriaComercial excelPrice) {
 
 		List<Integer> codProdList = excelPrice.getCodProd();
 		List<Double> priceList = excelPrice.getPrice();
 		List<Integer> codTabList = excelPrice.getCodTab();
 
-		List<PriceDTO> priceDTOToSave = new ArrayList<>();
+		List<TblPrecoControladoriaComercialDTO> priceDTOToSave = new ArrayList<>();
 
 		if (codProdList.size() == priceList.size() && priceList.size() == codTabList.size()) {
 
 			for (int i = 0; i < codProdList.size(); i++) {
 
-				PriceDTO priceDto = new PriceDTO();
+				TblPrecoControladoriaComercialDTO priceDto = new TblPrecoControladoriaComercialDTO();
 				priceDto.setCodProd(codProdList.get(i));
 				priceDto.setPrice(priceList.get(i));
 				priceDto.setCodTab(codTabList.get(i));
@@ -65,8 +64,8 @@ public class PriceService {
 	
 	
 	
-	public PriceDTO convertPriceToDTO(Price price) {
-		PriceDTO priceDto = new PriceDTO();
+	public TblPrecoControladoriaComercialDTO convertPriceToDTO(TblPrecoControladoriaComercial price) {
+		TblPrecoControladoriaComercialDTO priceDto = new TblPrecoControladoriaComercialDTO();
 		priceDto.setCodId(price.getCodId());
 		priceDto.setCodProd(price.getCodProd());
 		priceDto.setCodTab(price.getCodTab());
@@ -75,8 +74,8 @@ public class PriceService {
 	}
 
 	
-	public Price convertDTOToPrice(PriceDTO priceDto) {
-		Price price = new Price();
+	public TblPrecoControladoriaComercial convertDTOToPrice(TblPrecoControladoriaComercialDTO priceDto) {
+		TblPrecoControladoriaComercial price = new TblPrecoControladoriaComercial();
 		price.setCodId(priceDto.getCodId());
 		price.setCodProd(priceDto.getCodProd());
 		price.setCodTab(priceDto.getCodTab());

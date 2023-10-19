@@ -3,13 +3,13 @@ package com.pneubras.integrador.exceltooracle.Controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.pneubras.integrador.exceltooracle.DTO.Input;
-import com.pneubras.integrador.exceltooracle.DTO.Writer;
-import com.pneubras.integrador.exceltooracle.Services.PriceService;
+import com.pneubras.integrador.exceltooracle.Services.Input;
+import com.pneubras.integrador.exceltooracle.Services.TblPrecoControladoriaComercialService;
+import com.pneubras.integrador.exceltooracle.Services.Writer;
 
 
 @RestController
-public class PriceController {
+public class TblPrecoControladoriaComercialController {
 	
 	@Autowired
 	private Writer writer;
