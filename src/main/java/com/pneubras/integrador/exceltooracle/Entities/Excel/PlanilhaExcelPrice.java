@@ -4,12 +4,12 @@ import java.util.List;
 
 import jakarta.persistence.Entity;
 
-@Entity
+
 public class PlanilhaExcelPrice {
 
 	private List<Integer> codProd;
 	private List<Double> price;
-	private List<Double> codTab;
+	private List<Integer> codTab;
 	
 	
 	
@@ -17,7 +17,7 @@ public class PlanilhaExcelPrice {
 
 	}
 
-	public PlanilhaExcelPrice(List<Integer> codProd, List<Double> price, List<Double> codTab) {
+	public PlanilhaExcelPrice(List<Integer> codProd, List<Double> price, List<Integer> codTab) {
 		this.codProd = codProd;
 		this.price = price;
 		this.codTab = codTab;
@@ -35,10 +35,10 @@ public class PlanilhaExcelPrice {
 	public void setPrice(List<Double> price) {
 		this.price = price;
 	}
-	public List<Double> getCodTab() {
+	public List<Integer> getCodTab() {
 		return codTab;
 	}
-	public void setCodTab(List<Double> codTab) {
+	public void setCodTab(List<Integer> codTab) {
 		this.codTab = codTab;
 	}
 	

@@ -57,7 +57,6 @@ public class Price {
 		this.codTab = codTab;
 	}
 	
-	
 
 	@Override
 	public int hashCode() {
@@ -75,7 +74,6 @@ public class Price {
 		Price other = (Price) obj;
 		return Objects.equals(codId, other.codId);
 	}
-	
 	
 	
 }
