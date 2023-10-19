@@ -2,6 +2,8 @@ package com.pneubras.integrador.exceltooracle.Controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.pneubras.integrador.exceltooracle.DTO.Input;
 import com.pneubras.integrador.exceltooracle.DTO.Writer;
 import com.pneubras.integrador.exceltooracle.Services.PriceService;
 
@@ -13,8 +15,12 @@ public class PriceController {
 	private Writer writer;
 	
 	
+	@Autowired
+	private Input input;
+	
 	public String savePriceDataToOracle() {
-		System.out.println("*****Cheguei no controller*****");
+		String dataAtual = input.dataAtualLog();
+		System.out.println("Iniciando o controlador ********************--> " + dataAtual);
 		String retorno = writer.savePriceDataToOracle();
 		return retorno;
 		
