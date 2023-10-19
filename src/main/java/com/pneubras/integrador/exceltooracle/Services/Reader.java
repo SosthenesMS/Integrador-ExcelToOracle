@@ -1,10 +1,7 @@
 package com.pneubras.integrador.exceltooracle.Services;
 
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import org.apache.poi.hssf.usermodel.HSSFCell;
@@ -12,10 +9,9 @@ import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
-
 import com.pneubras.integrador.exceltooracle.Entities.Excel.PlanilhaPrecoControladoriaComercial;
+
 
 @Service
 public class Reader {
@@ -29,9 +25,11 @@ public class Reader {
 		Integer colunaA = 0;
 		Integer colunaB = 1;
 		Integer colunaC = 2;
-		Integer posicaoCodProd = 0;
-		Integer posicaoPreco = 1;
-		Integer posicaoCodTab = 2;
+		Integer posicaoCodTab = 0;
+		Integer posicaoCodProd = 1;
+		Integer posicaoVlrVendaAntigo = 2;
+		Integer posicaoVlrVendaNovo = 3;
+		
 		String dataAtual = inputStream.dataAtualLog();
 		PlanilhaPrecoControladoriaComercial excelPrice = new PlanilhaPrecoControladoriaComercial();
 		List<Integer> codProdList = new ArrayList<>();
@@ -58,7 +56,8 @@ public class Reader {
 		var numberOfRows = sheet.getPhysicalNumberOfRows();
 		
 		
-		for (int i = 1; i <= numberOfRows - 1; i++) {
+		
+		for(int i = 1; i <= numberOfRows - 1; i++) {
 			HSSFRow rowProd = sheet.getRow(i);
 			HSSFCell codProd = rowProd.getCell(posicaoCodProd);
 			Integer codProdF = (int) codProd.getNumericCellValue();
@@ -70,13 +69,25 @@ public class Reader {
 			}
 
 		}
-
-		for (int i = 1; i <= numberOfRows - 1; i++) {
+		
+		
+		for(int i = 1; i <= excelPrice.getCodProd().size(); i++) {
 			HSSFRow rowProd = sheet.getRow(i);
-			HSSFCell codProd = rowProd.getCell(posicaoPreco);
-			double preco = codProd.getNumericCellValue();
-			if (preco != 0) {
-				precoList.add(preco);
+			HSSFCell codProd = rowProd.getCell(posicaoCodTab);
+			Integer codTab = (int) codProd.getNumericCellValue();
+			codTabList.add(codTab);
+			excelPrice.setCodTab(codTabList);
+		
+		}
+		
+	
+
+		for(int i = 1; i <= numberOfRows - 1; i++) {
+			HSSFRow rowProd = sheet.getRow(i);
+			HSSFCell codProd = rowProd.getCell(posicaoVlrVendaAntigo);
+			double vlrAntigo = codProd.getNumericCellValue();
+			if (vlrAntigo != 0) {
+				precoList.add(vlrAntigo);
 				excelPrice.setPrice(precoList);
 			} else {
 				continue;
@@ -84,19 +95,6 @@ public class Reader {
 
 		}
 
-		for (int i = 1; i <= numberOfRows - 1; i++) {
-			HSSFRow rowProd = sheet.getRow(i);
-			HSSFCell codProd = rowProd.getCell(posicaoCodTab);
-			Integer codTab = (int) codProd.getNumericCellValue();
-			if (codTab != 0) {
-				codTabList.add(codTab);
-				excelPrice.setCodTab(codTabList);
-			} else {
-				continue;
-			}
-
-		}
-		
 
 		return excelPrice;
 		
