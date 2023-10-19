@@ -5,7 +5,9 @@ import java.io.FileInputStream;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
+import org.springframework.stereotype.Component;
 
+@Component
 public class Input {
 	
 	//Construtor padrão
@@ -16,8 +18,9 @@ public class Input {
 	
 	public FileInputStream getInputStream(String localArquivo) {
 		
-		String nomePlanilha = dateOfDay();
-		File file = new File(localArquivo + nomePlanilha );
+		String nomePlanilha = dateOfDay() +  ".xls";
+		
+		File file = new File(localArquivo + nomePlanilha);
 		
 		try {
 			FileInputStream planilha = new FileInputStream(file);
@@ -31,7 +34,7 @@ public class Input {
 	public String dateOfDay() {
 		DateTimeFormatter format = DateTimeFormatter.ofPattern("dd-MM-yyyy");
 		LocalDateTime time = LocalDateTime.now();
-		String data = (time.format(format)) + ".xls";
+		String data = (time.format(format));
 		return data;
 	}
 	

@@ -44,7 +44,7 @@ public class teste {
 
 		List<Integer> codProdList = new ArrayList<>();
 		List<Double> precoList = new ArrayList<>();
-		List<Double> codTabList = new ArrayList<>();
+		List<Integer> codTabList = new ArrayList<>();
 
 		DateTimeFormatter format = DateTimeFormatter.ofPattern("dd-MM-yyyy");
 		LocalDateTime time = LocalDateTime.now();
@@ -97,7 +97,7 @@ public class teste {
 		for (int i = 1; i <= numberOfRows - 1; i++) {
 			HSSFRow rowProd = sheet.getRow(i);
 			HSSFCell codProd = rowProd.getCell(posicaoCodTab);
-			double codTab = codProd.getNumericCellValue();
+			Integer codTab = (int) codProd.getNumericCellValue();
 			if (codTab != 0) {
 				codTabList.add(codTab);
 				excelPrice.setCodTab(codTabList);
@@ -108,6 +108,9 @@ public class teste {
 		}
 
 		System.out.println("numberOfRows --> " + numberOfRows);
+		
+		String datas = "19-10-2023.xls";
+		System.out.println(datas.substring(0,10));
 
 		/*
 		 * var teste = sheet.getFirstRowNum(); var coluna = sheet.getColumnBreaks(); var
@@ -117,7 +120,6 @@ public class teste {
 		 * System.out.println(data); System.out.println(fileName);
 		 * System.out.println("coluna --> " + coluna); System.out.println("colunas --> "
 		 * + colunas); System.out.println("colunaBrak --> " + colunaBrak);
-		 * 
 		 * System.out.println("teste --> " + teste);
 		 */
 
@@ -134,6 +136,8 @@ public class teste {
 
 	}
 
+	
+	
 	public static void main(String[] args) throws IOException {
 
 		PlanilhaExcelPrice price = obterDadosDaPlanilha();
