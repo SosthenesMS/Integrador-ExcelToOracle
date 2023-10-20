@@ -16,7 +16,7 @@ public class TblPrecoControladoriaComercial {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer codId;
 	private Integer codProd;
-	private double price;
+	private double vlrVendaAtual;
 	private Integer codTab;
 	
 	
@@ -25,10 +25,10 @@ public class TblPrecoControladoriaComercial {
 		
 	}
 	
-	public TblPrecoControladoriaComercial(Integer codId, Integer codProd, double price, Integer codTab) {
+	public TblPrecoControladoriaComercial(Integer codId, Integer codProd, double vlrVendaAtual, Integer codTab) {
 		this.codId = codId;
 		this.codProd = codProd;
-		this.price = price;
+		this.vlrVendaAtual = vlrVendaAtual;
 		this.codTab = codTab;
 	}
 	
@@ -44,11 +44,11 @@ public class TblPrecoControladoriaComercial {
 	public void setCodProd(Integer codProd) {
 		this.codProd = codProd;
 	}
-	public double getPrice() {
-		return price;
+	public double getVlrVendaAtual() {
+		return vlrVendaAtual;
 	}
-	public void setPrice(double price) {
-		this.price = price;
+	public void setVlrVendaAtual(double price) {
+		this.vlrVendaAtual = price;
 	}
 	public Integer getCodTab() {
 		return codTab;

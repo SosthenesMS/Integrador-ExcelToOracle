@@ -8,7 +8,7 @@ import jakarta.persistence.Entity;
 public class PlanilhaPrecoControladoriaComercial {
 
 	private List<Integer> codProd;
-	private List<Double> price;
+	private List<Double> vlrVendaAtual;
 	private List<Integer> codTab;
 	
 	
@@ -19,7 +19,7 @@ public class PlanilhaPrecoControladoriaComercial {
 
 	public PlanilhaPrecoControladoriaComercial(List<Integer> codProd, List<Double> price, List<Integer> codTab) {
 		this.codProd = codProd;
-		this.price = price;
+		this.vlrVendaAtual = price;
 		this.codTab = codTab;
 	}
 	
@@ -29,11 +29,11 @@ public class PlanilhaPrecoControladoriaComercial {
 	public void setCodProd(List<Integer> codProd) {
 		this.codProd = codProd;
 	}
-	public List<Double> getPrice() {
-		return price;
+	public List<Double> getVlrVendaAtual() {
+		return vlrVendaAtual;
 	}
-	public void setPrice(List<Double> price) {
-		this.price = price;
+	public void setVlrVendaAtual(List<Double> price) {
+		this.vlrVendaAtual = price;
 	}
 	public List<Integer> getCodTab() {
 		return codTab;

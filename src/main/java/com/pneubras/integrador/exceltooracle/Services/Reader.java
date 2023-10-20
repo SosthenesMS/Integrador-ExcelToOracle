@@ -27,15 +27,14 @@ public class Reader {
 	//Método exclusivo para a leitura da planilha de PRECO
 	public PlanilhaPrecoControladoriaComercial obterDadosDaPlanilhaPreco() throws IOException {
 		Integer colunaA = 0;
-		Integer colunaB = 1;
-		Integer colunaC = 2;
-		Integer posicaoCodProd = 0;
-		Integer posicaoPreco = 1;
-		Integer posicaoCodTab = 2;
+		Integer posicaoCodTab = 0;
+		Integer posicaoCodProd = 1;
+		Integer posicaoVlrVendaAntigo = 2;
 		String dataAtual = inputStream.dataAtualLog();
 		PlanilhaPrecoControladoriaComercial excelPrice = new PlanilhaPrecoControladoriaComercial();
+		
 		List<Integer> codProdList = new ArrayList<>();
-		List<Double> precoList = new ArrayList<>();
+		List<Double> vlrVendaVendaAtualList = new ArrayList<>();
 		List<Integer> codTabList = new ArrayList<>();
 		
 		
@@ -58,39 +57,42 @@ public class Reader {
 		var numberOfRows = sheet.getPhysicalNumberOfRows();
 		
 		
-		for (int i = 1; i <= numberOfRows - 1; i++) {
-			HSSFRow rowProd = sheet.getRow(i);
-			HSSFCell codProd = rowProd.getCell(posicaoCodProd);
-			Integer codProdF = (int) codProd.getNumericCellValue();
-			if (codProdF != 0) {
-				codProdList.add(codProdF);
+		for(int i = 1; i <= numberOfRows - 1; i++) {
+			HSSFRow rowCodTab = sheet.getRow(i);
+			HSSFCell codTabExc = rowCodTab.getCell(posicaoCodTab);
+			Integer codTab = (int) codTabExc.getNumericCellValue();
+			if (codTab != 0) {
+				codTabList.add(codTab);
+				excelPrice.setCodTab(codTabList);
+			} else {
+				continue;
+			}
+
+		}
+
+		
+		for(int i = 1; i <= numberOfRows - 1; i++) {
+			HSSFRow rowCodProd = sheet.getRow(i);
+			HSSFCell codProdExc = rowCodProd.getCell(posicaoCodProd);
+			Integer codProd = (int) codProdExc.getNumericCellValue();
+			if (codProd != 0) {
+				codProdList.add(codProd);
 				excelPrice.setCodProd(codProdList);
 			} else {
 				continue;
 			}
 
 		}
+		
+		
 
-		for (int i = 1; i <= numberOfRows - 1; i++) {
-			HSSFRow rowProd = sheet.getRow(i);
-			HSSFCell codProd = rowProd.getCell(posicaoPreco);
-			double preco = codProd.getNumericCellValue();
-			if (preco != 0) {
-				precoList.add(preco);
-				excelPrice.setPrice(precoList);
-			} else {
-				continue;
-			}
-
-		}
-
-		for (int i = 1; i <= numberOfRows - 1; i++) {
-			HSSFRow rowProd = sheet.getRow(i);
-			HSSFCell codProd = rowProd.getCell(posicaoCodTab);
-			Integer codTab = (int) codProd.getNumericCellValue();
-			if (codTab != 0) {
-				codTabList.add(codTab);
-				excelPrice.setCodTab(codTabList);
+		for(int i = 1; i <= numberOfRows - 1; i++) {
+			HSSFRow rowVlrVendaAtual = sheet.getRow(i);
+			HSSFCell vlrVendaAtualExc = rowVlrVendaAtual.getCell(posicaoVlrVendaAntigo);
+			Double vlrVendaAtual = vlrVendaAtualExc.getNumericCellValue();
+			if (vlrVendaAtual != 0) {
+				vlrVendaVendaAtualList.add(vlrVendaAtual);
+				excelPrice.setVlrVendaAtual(vlrVendaVendaAtualList);
 			} else {
 				continue;
 			}
