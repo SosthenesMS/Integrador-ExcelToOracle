@@ -34,7 +34,7 @@ public class Writer {
 			return "";
 			
 		} catch(Exception ex) {
-			throw new RuntimeException("Erro na leitura dos dados da planilha!");
+			throw new RuntimeException(ex.getMessage());
 		}
 		
 	}
