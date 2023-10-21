@@ -5,29 +5,28 @@ import com.pneubras.integrador.exceltooracle.Entities.Oracle.TblPrecoControlador
 public class TblPrecoControladoriaComercialDTO {
 	
 	private Integer codId;
+	private Integer nuTab;
 	private Integer codProd;
-	private double vlrVendaAtual;
-	private Integer codTab;
-	
+	private double vlrVendaNovo;
 	
 	
 	public TblPrecoControladoriaComercialDTO() {
 	
 	}
 
-	public TblPrecoControladoriaComercialDTO(Integer codId, Integer codProd, double vlrVendaAtual, Integer codTab) {
+	public TblPrecoControladoriaComercialDTO(Integer codId, Integer codProd, double vlrVendaNovo, Integer nuTab) {
 		this.codId = codId;
 		this.codProd = codProd;
-		this.vlrVendaAtual = vlrVendaAtual;
-		this.codTab = codTab;
+		this.vlrVendaNovo = vlrVendaNovo;
+		this.nuTab = nuTab;
 	}
 	
 	
 	public TblPrecoControladoriaComercialDTO(TblPrecoControladoriaComercial obj) {
 		this.codId = obj.getCodId();
 		this.codProd = obj.getCodProd();
-		this.vlrVendaAtual = obj.getVlrVendaAtual();
-		this.codTab = obj.getCodTab();
+		this.vlrVendaNovo = obj.getVlrVendaNovo();
+		this.nuTab = obj.getNuTab();
 	}
 	
 	
@@ -44,17 +43,17 @@ public class TblPrecoControladoriaComercialDTO {
 	public void setCodProd(Integer codProd) {
 		this.codProd = codProd;
 	}
-	public double getVlrVendaAtual() {
-		return vlrVendaAtual;
+	public double getVlrVendaNovo() {
+		return vlrVendaNovo;
 	}
-	public void setVlrVendaAtual(double price) {
-		this.vlrVendaAtual = price;
+	public void setVlrVendaNovo(double vlrVendaNovo) {
+		this.vlrVendaNovo = vlrVendaNovo;
 	}
-	public Integer getCodTab() {
-		return codTab;
+	public Integer getNuTab() {
+		return nuTab;
 	}
-	public void setCodTab(Integer codTab) {
-		this.codTab = codTab;
+	public void setNuTab(Integer nuTab) {
+		this.nuTab = nuTab;
 	}
 
 	

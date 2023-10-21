@@ -21,8 +21,8 @@ public class TblPrecoControladoriaComercialService {
 	public void convertPlanilhaExcelPriceToPriceDTOList(PlanilhaPrecoControladoriaComercial excelPrice) {
 
 		List<Integer> codProdList = excelPrice.getCodProd();
-		List<Double> priceList = excelPrice.getVlrVendaAtual();
-		List<Integer> codTabList = excelPrice.getCodTab();
+		List<Double> priceList = excelPrice.getVlrVendaNovo();
+		List<Integer> codTabList = excelPrice.getNuTab();
 
 		List<TblPrecoControladoriaComercialDTO> priceDTOToSave = new ArrayList<>();
 
@@ -32,8 +32,8 @@ public class TblPrecoControladoriaComercialService {
 
 				TblPrecoControladoriaComercialDTO priceDto = new TblPrecoControladoriaComercialDTO();
 				priceDto.setCodProd(codProdList.get(i));
-				priceDto.setVlrVendaAtual(priceList.get(i));
-				priceDto.setCodTab(codTabList.get(i));
+				priceDto.setVlrVendaNovo(priceList.get(i));
+				priceDto.setNuTab(codTabList.get(i));
 
 				priceDTOToSave.add(priceDto);
 			}
@@ -60,15 +60,12 @@ public class TblPrecoControladoriaComercialService {
 
 	
 	
-	
-	
-	
 	public TblPrecoControladoriaComercialDTO convertPriceToDTO(TblPrecoControladoriaComercial price) {
 		TblPrecoControladoriaComercialDTO priceDto = new TblPrecoControladoriaComercialDTO();
 		priceDto.setCodId(price.getCodId());
 		priceDto.setCodProd(price.getCodProd());
-		priceDto.setCodTab(price.getCodTab());
-		priceDto.setVlrVendaAtual(price.getVlrVendaAtual());
+		priceDto.setNuTab(price.getNuTab());
+		priceDto.setVlrVendaNovo(price.getVlrVendaNovo());
 		return priceDto;
 	}
 
@@ -77,8 +74,8 @@ public class TblPrecoControladoriaComercialService {
 		TblPrecoControladoriaComercial price = new TblPrecoControladoriaComercial();
 		price.setCodId(priceDto.getCodId());
 		price.setCodProd(priceDto.getCodProd());
-		price.setCodTab(priceDto.getCodTab());
-		price.setVlrVendaAtual(priceDto.getVlrVendaAtual());
+		price.setNuTab(priceDto.getNuTab());
+		price.setVlrVendaNovo(priceDto.getVlrVendaNovo());
 		return price;
 	}
 
