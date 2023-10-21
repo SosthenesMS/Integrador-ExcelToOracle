@@ -7,9 +7,9 @@ import jakarta.persistence.Entity;
 
 public class PlanilhaPrecoControladoriaComercial {
 
+	private List<Integer> nuTab;
 	private List<Integer> codProd;
-	private List<Double> vlrVendaAtual;
-	private List<Integer> codTab;
+	private List<Double> vlrVendaNovo;
 	
 	
 	
@@ -17,10 +17,10 @@ public class PlanilhaPrecoControladoriaComercial {
 
 	}
 
-	public PlanilhaPrecoControladoriaComercial(List<Integer> codProd, List<Double> price, List<Integer> codTab) {
+	public PlanilhaPrecoControladoriaComercial(List<Integer> codProd, List<Double> vlrVendaNovo, List<Integer> nuTab) {
 		this.codProd = codProd;
-		this.vlrVendaAtual = price;
-		this.codTab = codTab;
+		this.vlrVendaNovo = vlrVendaNovo;
+		this.nuTab = nuTab;
 	}
 	
 	public List<Integer> getCodProd() {
@@ -29,17 +29,17 @@ public class PlanilhaPrecoControladoriaComercial {
 	public void setCodProd(List<Integer> codProd) {
 		this.codProd = codProd;
 	}
-	public List<Double> getVlrVendaAtual() {
-		return vlrVendaAtual;
+	public List<Double> getVlrVendaNovo() {
+		return vlrVendaNovo;
 	}
-	public void setVlrVendaAtual(List<Double> price) {
-		this.vlrVendaAtual = price;
+	public void setVlrVendaNovo(List<Double> vlrVendaNovo) {
+		this.vlrVendaNovo = vlrVendaNovo;
 	}
-	public List<Integer> getCodTab() {
-		return codTab;
+	public List<Integer> getNuTab() {
+		return nuTab;
 	}
-	public void setCodTab(List<Integer> codTab) {
-		this.codTab = codTab;
+	public void setNuTab(List<Integer> nuTab) {
+		this.nuTab = nuTab;
 	}
 	
 	

@@ -28,17 +28,17 @@ public class Reader {
 	public PlanilhaPrecoControladoriaComercial obterDadosDaPlanilhaPreco() throws IOException {
 		Integer colunaA = 0;
 		
-		Integer posicaoCodTab = 0;
-		Integer posicaoCodProd = 1;
-		Integer posicaoVlrVendaAtual = 2;
+		Integer posicaoNuTab = 2;
+		Integer posicaoCodProd = 3;
+		Integer posicaoVlrVendaNovo = 4;
 		
 		String dataAtual = inputStream.dataAtualLog();
 		PlanilhaPrecoControladoriaComercial excelPrice = new PlanilhaPrecoControladoriaComercial();
 		
 		List<Integer> codProdList = new ArrayList<>();
-		List<Double> vlrVendaVendaAtualList = new ArrayList<>();
-		List<Integer> codTabList = new ArrayList<>();
-		
+		List<Integer> nuTabList = new ArrayList<>();
+		List<Double> vlrVendaVendaNovoList = new ArrayList<>();
+				
 		
 		System.out.println("Buscando planilha ********************--> " +  dataAtual);
 		//Criação do fileInputStream contendo o caminho específico do arquivo através da classe "Input"
@@ -57,9 +57,7 @@ public class Reader {
 		//Definindo a celula que será lida
 		HSSFCell coluna = row.getCell(colunaA);
 		var numberOfRows = sheet.getPhysicalNumberOfRows();
-		System.out.println("numberOfRows ********************--> " +  numberOfRows);
-		//numberOfRows = 282;
-		
+
 		
 		
 		//CONTADOR DE CELULAS PREENCHIDAS NA COLUNA A
@@ -77,18 +75,18 @@ public class Reader {
 		}
 		
 	
-		
 		System.out.println("Total de linhas numéricas encontradas na COLUNA A: " +  count + " ********************--> " + dataAtual);
 		
 		for(int i = 1; i <= count; i++) {
-			HSSFRow rowCodTab = sheet.getRow(i);
-			HSSFCell codTabExc = rowCodTab.getCell(posicaoCodTab);
-			Integer codTab = (int) codTabExc.getNumericCellValue();
-			codTabList.add(codTab);
-			excelPrice.setCodTab(codTabList);
+			HSSFRow rowNuTab = sheet.getRow(i);
+			HSSFCell nuTabExc = rowNuTab.getCell(posicaoNuTab);
+			Integer nuTab = (int) nuTabExc.getNumericCellValue();
+			nuTabList.add(nuTab);
+			excelPrice.setNuTab(nuTabList);
 
 		}
-
+		
+			
 		
 		for(int i = 1; i <= count; i++) {
 			HSSFRow rowCodProd = sheet.getRow(i);
@@ -107,11 +105,11 @@ public class Reader {
 
 		for(int i = 1; i <= count; i++) {
 			HSSFRow rowVlrVendaAtual = sheet.getRow(i);
-			HSSFCell vlrVendaAtualExc = rowVlrVendaAtual.getCell(posicaoVlrVendaAtual);
+			HSSFCell vlrVendaAtualExc = rowVlrVendaAtual.getCell(posicaoVlrVendaNovo);
 			Double vlrVendaAtual = vlrVendaAtualExc.getNumericCellValue();
 			if (vlrVendaAtual != 0) {
-				vlrVendaVendaAtualList.add(vlrVendaAtual);
-				excelPrice.setVlrVendaAtual(vlrVendaVendaAtualList);
+				vlrVendaVendaNovoList.add(vlrVendaAtual);
+				excelPrice.setVlrVendaNovo(vlrVendaVendaNovoList);
 			} else {
 				continue;
 			}

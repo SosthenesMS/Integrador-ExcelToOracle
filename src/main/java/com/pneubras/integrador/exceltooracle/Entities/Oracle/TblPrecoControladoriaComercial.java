@@ -15,21 +15,21 @@ public class TblPrecoControladoriaComercial {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer codId;
+	private Integer nuTab;
 	private Integer codProd;
-	private double vlrVendaAtual;
-	private Integer codTab;
+	private double vlrVendaNovo;
 	
-	
+
 	
 	public TblPrecoControladoriaComercial() {
 		
 	}
 	
-	public TblPrecoControladoriaComercial(Integer codId, Integer codProd, double vlrVendaAtual, Integer codTab) {
+	public TblPrecoControladoriaComercial(Integer codId, Integer codProd, double vlrVendaNovo, Integer nuTab) {
 		this.codId = codId;
 		this.codProd = codProd;
-		this.vlrVendaAtual = vlrVendaAtual;
-		this.codTab = codTab;
+		this.vlrVendaNovo = vlrVendaNovo;
+		this.nuTab = nuTab;
 	}
 	
 	public Integer getCodId() {
@@ -44,17 +44,17 @@ public class TblPrecoControladoriaComercial {
 	public void setCodProd(Integer codProd) {
 		this.codProd = codProd;
 	}
-	public double getVlrVendaAtual() {
-		return vlrVendaAtual;
+	public double getVlrVendaNovo() {
+		return vlrVendaNovo;
 	}
-	public void setVlrVendaAtual(double price) {
-		this.vlrVendaAtual = price;
+	public void setVlrVendaNovo(double vlrVendaNovo) {
+		this.vlrVendaNovo = vlrVendaNovo;
 	}
-	public Integer getCodTab() {
-		return codTab;
+	public Integer getNuTab() {
+		return nuTab;
 	}
-	public void setCodTab(Integer codTab) {
-		this.codTab = codTab;
+	public void setNuTab(Integer nuTab) {
+		this.nuTab = nuTab;
 	}
 	
 
