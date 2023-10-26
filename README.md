@@ -17,8 +17,8 @@ As planilhas serão atualizadas na rede pelo usuário, e todos os dias em que ho
 
 ### :dart: Fluxograma Runtime
 
-<div align="left">
-  <img src="src/main/resources/static/DiagramaAtualizado.png" width="50%" height ="50%" />
+<div align="center">
+  <img src="src/main/resources/static/DiagramaAtualizado.png" width="75%" height ="75%" />
 </div>
 </br>
 </br>
